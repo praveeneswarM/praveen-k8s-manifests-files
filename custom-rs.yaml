@@ -1,0 +1,21 @@
+apiVersion: app/v1
+kind: ReplicaSet
+metadata:
+  name: photo-rs
+  namespace: praveen-ns
+  labels:
+    app: photo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels: photo-temp
+    template:
+      metadata:
+        labels:
+          app: photo-temp
+      spec:
+        containers:
+          - name: photo-studio-web
+            image: praveenx03/photo-studio:v1.1.0
+            ports:
+              - containerPort: 3000
