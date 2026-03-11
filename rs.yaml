@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Replicaset
+metadata:
+  name: ey-cart-rs 
+  namespace: praveen-ns
+  labels:
+    app: cart
+spec: # behaviour of replicaset
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template: # it contains pod definition 
+    metadata:
+      labels:
+        app: web
+    spec: # it contains container definition
+      containers:
+        - name: ey-cart-web
+          image: muralisocial123/ey-cart:v1.1.0
+          ports:
+            - containerPort: 3000 
