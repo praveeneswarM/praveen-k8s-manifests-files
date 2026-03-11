@@ -10,4 +10,4 @@ spec:
     - name: Photo-container
       image: praveenx03/photo-studio:v1.1.0
       ports:
-        containerPort: 3000
+        - containerPort: 3000
