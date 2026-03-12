@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ey-deployment
+  namespace: praveen-ns
+  labels:
+    app: dep 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ey-dep
+  template:
+    metadata: 
+      labels:
+        app: ey-dep
+    spec:
+      containers:
+        - name: ey-dep-container
+          image: muralisocial123/ey-cart:v1.1.0
+          ports:
+            - containerPort: 3000
