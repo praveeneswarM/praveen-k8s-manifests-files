@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: flower-rs 
+  namespace: praveen-ns
+  labels:
+    app: flower-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flower-web
+  template:
+    metadata: 
+      labels:
+        app: flower-web
+    spec:
+      containers:
+        - name: flower-app-container
+          image: praveenx03/flower:v1.1.0
+          ports:
+            - containerPort: 3015 
+
