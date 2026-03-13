@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadate:
+  name: cust-deploy
+  namespace: praveen-ns
+  labels:
+    app: cust-dep
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  selector:
+    matchLabels:
+      app: fitness
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: fitness
+    spec:
+      container:
+        - name: fitness-container
+          image: muralisocial123/fitness-app:v1.0.1
+          ports:
+            - containerPort: 3000
+
+  
