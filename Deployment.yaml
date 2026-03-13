@@ -22,6 +22,6 @@ spec:
     spec:
       containers:
         - name: ey-dep-container
-          image: praveenx03/retail:v1.1.0
+          image: praveenx03/retail:v1.2.0
           ports:
             - containerPort: 80
