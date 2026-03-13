@@ -22,8 +22,20 @@ spec:
     spec:
       containers:
         - name: fitness-container
-          image: muralisocial123/transaction-app:v1.0.0
+          image: muralisocial123/fitness-app:v1.0.1
           ports:
             - containerPort: 3000
-
-  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cust-deploy-svc 
+  namespace: praveen-ns
+spec:
+  selector:
+    app: fitness
+  ports:
+    - port: 3001 #host portnumber || service port number used to expose application to internet
+      targerPort: 3000 #target port || application port || contaier port
+      protocol: TCP
+  type: ClusterIP 
