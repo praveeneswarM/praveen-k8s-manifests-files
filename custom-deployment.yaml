@@ -14,7 +14,7 @@ spec:
   selector:
     matchLabels:
       app: fitness
-  replicas: 5
+  replicas: 8
   template:
     metadata:
       labels:
